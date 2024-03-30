@@ -36,16 +36,16 @@ npm install
 Configure MSAL by providing your Azure AD application's client ID and authority. This configuration should be defined in `src/libs/auth/authConfig.js`, which is not included in the repository due to containing sensitive information. Ensure you create this file locally with the following content:
 
 ```javascript
-import { Configuration, LogLevel } from "@azure/msal-browser";
+import { Configuration, LogLevel } from '@azure/msal-browser';
 
 export const authConfig: Configuration = {
   auth: {
-    clientId: "YOUR_CLIENT_ID",
-    authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
-    redirectUri: "/",
+    clientId: 'YOUR_CLIENT_ID',
+    authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID',
+    redirectUri: '/',
   },
   cache: {
-    cacheLocation: "localStorage",
+    cacheLocation: 'localStorage',
     storeAuthStateInCookie: false,
   },
   system: {
@@ -74,6 +74,14 @@ export const authConfig: Configuration = {
       logLevel: LogLevel.Info,
     },
   },
+};
+
+export const loginRequest = {
+  scopes: ['User.Read'],
+};
+
+export const graphConfig = {
+  graphMeEndpoint: 'https://graph.microsoft.com/v1.0/me',
 };
 ```
 
